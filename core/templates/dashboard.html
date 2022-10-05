@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/mdui/1.0.2/css/mdui.css" type="text/css"
+    rel="stylesheet" />
+  <link href="{{url_for('static', filename='dashboard.css')}}" type="text/css">
+  <title>SecCloud</title>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-accent-indigo">
+
+  <header class="mdui-appbar mdui-appbar-fixed mdui-color-white mdui-appbar-inset mdui-shadow-1">
+    <div class="mdui-toolbar">
+      <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
+        <i class="mdui-icon material-icons">format_list_bulleted</i>
+      </button>
+      <i class="mdui-icon material-icons mdui-text-color-orange-500 mdui-color-white">dashboard</i>
+      <a href="{{url_for("dashboard")}}" class="mdui-typo-headline">DashBoard</a>
+      <div class="mdui-toolbar-spacer"></div>
+      <a href="{{request.path}}" class="mdui-btn mdui-btn-icon">
+        <i class="mdui-icon material-icons">refresh</i>
+      </a>
+      <button href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#example-attr'}">
+        <i class="mdui-icon material-icons">more_vert</i>
+      </button>
+      <ul class="mdui-menu" id="example-attr">
+        <li class="mdui-menu-item">
+          <a href="{{request.path}}" class="mdui-ripple">Refresh</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="javascript:;">Help & feedback</a>
+        </li>
+        <li class="mdui-divider"></li>
+        <li class="mdui-menu-item">
+          <a href="{{url_for('logout')}}" class="mdui-ripple">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+
+  <div class="mdui-drawer mdui-shadow-1 mdui-drawer-full-height" id="left-drawer">
+    <div class="mdui-list">
+      <li class="mdui-subheader mdui-color-indigo-50">
+        <i class="mdui-icon material-icons">check</i>
+        Finished
+      </li>
+
+      <!--<a href="#" class="mdui-list-item mdui-ripple mdui-text-color-indigo-500">
+        <i class="mdui-list-item-icon"></i>
+        APP.exe
+      </a>
+      <a href="#" class="mdui-list-item mdui-ripple mdui-text-color-indigo-500">
+        <i class="mdui-list-item-icon"></i>
+        nc.exe
+      </a>
+      <a href="#" class="mdui-list-item mdui-ripple mdui-text-color-indigo-500">
+        <i class="mdui-list-item-icon"></i>
+        ping.exe
+      </a>-->
+      {{finished_list_html | safe}}
+      <li class="mdui-subheader mdui-color-indigo-50">
+        <i class="mdui-icon material-icons">check_box_outline_blank</i>
+        <i class="mdui-list-item-icon"></i>
+        Unfinished
+      </li>
+      <!--<a href="#" class="mdui-list-item mdui-ripple mdui-text-color-indigo-500">
+        <i class="mdui-list-item-icon"></i>
+        python.exe
+      </a>-->
+      {{unfinished_list_html | safe}}
+    </div>
+  </div>
+
+  <main class="mdui-container">
+    <div class="mdui-row">
+      <div class="mdui-col-md-1 mdui-col-sm-2">
+      </div>
+      <div class="mdui-col-md-7 mdui-col-sm-8">
+        <div class="blank" style="height: 2rem;"></div>
+        <div class="mdui-typo-display-1" style="font-weight: 700;">Hello, {{current_user.name}}.</div>
+        <div class="blank" style="height: 1rem;"></div>
+
+        <form class="mdui-row" action="{{url_for('upload')}}" method="post" enctype="multipart/form-data">
+          <div class="mdui-textfield mdui-textfield-floating-label mdui-col-sm-12">
+            <div class="mdui-typo-title" style="font-weight: 700;">Add new targets</div>
+            <label class="mdui-textfield-label">Program Name</label>
+            <input class="mdui-textfield-input" type="text" name="name" />
+            <label class="mdui-textfield-label">Arguments</label>
+            <input class="mdui-textfield-input" type="text" name="args" />
+          </div>
+          <input class="mdui-btn mdui-color-indigo file-input" type="file" name="file" style="display: none;">
+          <span class="mdui-btn mdui-btn-dense mdui-ripple mdui-color-indigo file-input-trigger">
+            <i class="mdui-icon material-icons ">attach_file</i>
+          </span>
+          <button class="mdui-btn mdui-btn-dense mdui-ripple mdui-color-indigo" type="submit">
+            UPLOAD
+          </button>
+        </form>
+
+        {{card_list_html | safe}}
+
+
+      </div>
+      <div class="mdui-col-md-4 mdui-col-sm-2 mdui-m-t-5 mdui-hidden-sm-down">
+        <div class="mdui-card">
+          <div class="mdui-card-menu">
+            <button class="mdui-btn mdui-btn-icon mdui-text-color-theme-accent">
+              <i class="mdui-icon material-icons">close</i>
+            </button>
+          </div>
+          <div class="mdui-card-primary">
+            <div class="mdui-typo-title">Notice</div>
+            <div class="mdui-typo-caption">Boost your security test</div>
+            <hr>
+            <div class="mdui-typo-headline mdui-text-color-indigo">{{msg}}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+  <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+  <script>
+    $SCRIPT_ROOT = {{ request.script_root | tojson | safe }};
+  </script>
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+
+</html>

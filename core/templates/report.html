@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/mdui/1.0.2/css/mdui.css" type="text/css"
+        rel="stylesheet" />
+    <link href="{{url_for('static', filename='dashboard.css')}}" type="text/css">
+    <title>Report for {{name}}</title>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-accent-indigo">
+
+    <header class="mdui-appbar mdui-appbar-fixed mdui-color-white mdui-appbar-inset mdui-shadow-1">
+        <div class="mdui-toolbar">
+            <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
+                <i class="mdui-icon material-icons">format_list_bulleted</i>
+            </button>
+            <i class="mdui-icon material-icons mdui-text-color-orange-500 mdui-color-white">dashboard</i>
+            <a href="{{url_for("dashboard")}}" class="mdui-typo-headline">DashBoard</a>
+            <div class="mdui-toolbar-spacer"></div>
+            <a href="{{request.path}}" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">refresh</i>
+            </a>
+            <button href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#example-attr'}">
+                <i class="mdui-icon material-icons">more_vert</i>
+            </button>
+            <ul class="mdui-menu" id="example-attr">
+                <li class="mdui-menu-item">
+                    <a href="{{request.path}}" class="mdui-ripple">Refresh</a>
+                </li>
+                <li class="mdui-menu-item">
+                    <a href="javascript:;">Help & feedback</a>
+                </li>
+                <li class="mdui-divider"></li>
+                <li class="mdui-menu-item">
+                    <a href="{{url_for('logout')}}" class="mdui-ripple">Sign out</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="mdui-drawer mdui-shadow-1 mdui-drawer-full-height" id="left-drawer">
+        <div class="mdui-list">
+            <li class="mdui-subheader mdui-color-indigo-50">
+                <i class="mdui-icon material-icons">check</i>
+                Finished
+            </li>
+
+            {{finished_list_html | safe}}
+            <li class="mdui-subheader mdui-color-indigo-50">
+                <i class="mdui-icon material-icons">check_box_outline_blank</i>
+                <i class="mdui-list-item-icon"></i>
+                Unfinished
+            </li>
+
+            {{unfinished_list_html | safe}}
+        </div>
+    </div>
+
+    <main class="mdui-container">
+        <div class="mdui-row">
+            <div class="mdui-col-md-1 mdui-col-sm-1">
+            </div>
+            <div class="mdui-col-md-9 mdui-col-sm-10">
+                <div class="blank" style="height: 2rem;"></div>
+                <div class="mdui-typo-display-1" style="font-weight: 700;">Report for {{name}}</div>
+                <div class="blank" style="height: 1rem;"></div>
+
+                <br>
+                <div class="mdui-card mdui-row">
+
+                    <div class="mdui-table-fluid">
+                        <table class="mdui-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>API Name</th>
+                                    <th>Arguments</th>
+                                    <th>Warning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{api_list_html | safe}}
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+                <div class="mdui-card mdui-row">
+
+                    <div class="mdui-card-primary"></div>
+                    
+                </div>
+            </div>
+            <div class="mdui-col-md-2 mdui-col-sm-1 mdui-m-t-5 mdui-hidden-sm-down">
+
+            </div>
+
+        </div>
+    </main>
+
+
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script>
+        $SCRIPT_ROOT = {{ request.script_root | tojson | safe }};
+    </script>
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+{
+    "1": {
+        "api": "HeapCreate",
+        "hHeap": "00000291F4D90000",
+        "dwInitialSize": "40960",
+        "dwMaximumSize": "409600",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "2": {
+        "api": "HeapAlloc",
+        "hHeap": "00000291F4D90000",
+        "dwFlags": "2951739864",
+        "dwBytes": "120",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "3": {
+        "api": "HeapFree",
+        "hHeap": "00000291F4D90000",
+        "dwFlags": "2951739864",
+        "lpMem": "00000291F4D90720",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "4": {
+        "api": "HeapDestroy",
+        "hHeap": "00000291F4D90000",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "5": {
+        "api": "WriteFile",
+        "FileName": "D:/Code/Python/APIserver/test/a.txt",
+        "warning": "1",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "6": {
+        "api": "ReadFile",
+        "FileName": "D:/Code/Python/APIserver/test/a.txt",
+        "warning": "1",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "7": {
+        "api": "RegCreateKeyEx",
+        "hKey": "FFFFFFFF80000001",
+        "lpSubKey": "aaaMykey",
+        "warning": "1",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "8": {
+        "api": "RegSetValueEx",
+        "hKey": "0000000000000358",
+        "lpValueName": "panfeng",
+        "warning": "1",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "9": {
+        "api": "RegOpenKeyEx",
+        "hKey": "FFFFFFFF80000001",
+        "lpSubKey": "aaaMykey",
+        "warning": "1",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "10": {
+        "api": "RegDeleteValueEx",
+        "hKey": "0000000000000190",
+        "lpValueName": "panfeng",
+        "warning": "1",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "11": {
+        "api": "RegCloseKey",
+        "hKey": "0000000000000190",
+        "warning": "1",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "12": {
+        "api": "HeapCreate",
+        "hHeap": "00000291F4CC0000",
+        "dwInitialSize": "40960",
+        "dwMaximumSize": "409600",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "13": {
+        "api": "HeapAlloc",
+        "hHeap": "00000291F4CC0000",
+        "dwFlags": "2951739864",
+        "dwBytes": "120",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "14": {
+        "api": "HeapFree",
+        "hHeap": "00000291F4CC0000",
+        "dwFlags": "2951739864",
+        "lpMem": "00000291F4CC0720",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "15": {
+        "api": "HeapFree",
+        "hHeap": "00000291F4CC0000",
+        "warning": "1",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    },
+    "16": {
+        "api": "HeapDestroy",
+        "hHeap": "00000291F4CC0000",
+        "id": "D:/Code/Python/APIserver/test/1.exe"
+    }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/mdui/1.0.2/css/mdui.css" type="text/css"
+    rel="stylesheet" />
+  <link href="/static/dashboard_style.css" type="text/css">
+  <title>SecCloud</title>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left">
+
+  <header class="mdui-appbar mdui-appbar-fixed mdui-color-white mdui-appbar-inset mdui-shadow-1">
+    <div class="mdui-toolbar">
+      <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#left-drawer'}">
+        <i class="mdui-icon material-icons">format_list_bulleted</i>
+      </button>
+      <i class="mdui-icon material-icons mdui-text-color-orange-500 mdui-color-white">dashboard</i>
+      <a href="javascript:;" class="mdui-typo-headline">DashBoard</a>
+      <div class="mdui-toolbar-spacer"></div>
+      <a href="javascript:;" class="mdui-btn mdui-btn-icon">
+        <i class="mdui-icon material-icons">refresh</i>
+      </a>
+      <button href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-menu="{target: '#example-attr'}">
+        <i class="mdui-icon material-icons">more_vert</i>
+      </button>
+      <ul class="mdui-menu" id="example-attr">
+        <li class="mdui-menu-item">
+          <a href="javascript:;" class="mdui-ripple">Refresh</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="javascript:;">Help & feedback</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="javascript:;" class="mdui-ripple">Settings</a>
+        </li>
+        <li class="mdui-divider"></li>
+        <li class="mdui-menu-item">
+          <a href="{{url_for('logout')}}" class="mdui-ripple">Sign out</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+
+  <div class="mdui-drawer mdui-shadow-1 mdui-drawer-full-height" id="left-drawer">
+    <div class="mdui-list">
+      <li class="mdui-subheader">Finished</li>
+      <a href="#" class="mdui-list-item mdui-ripple mdui-text-color-indigo-500">Inbox</a>
+      <a href="#" class="mdui-list-item mdui-ripple mdui-text-color-indigo-500">Starred</a>
+      <a href="#" class="mdui-list-item mdui-ripple mdui-text-color-indigo-500">Send mail</a>
+      <li class="mdui-subheader">Undone</li>
+    </div>
+  </div>
+
+  <main class="mdui-container">
+    <div class="mdui-row">
+      <div class="mdui-col-md-1 mdui-col-sm-2"></div>
+      <div class="mdui-col-md-10 mdui-col-sm-8">
+        <div class="blank" style="height: 2rem;"></div>
+        <div class="mdui-typo-display-1" style="font-weight: 700;">Hello, {{current_user.name}}.</div>
+        <div class="blank" style="height: 1rem;"></div>
+
+        <div class="mdui-card">
+
+          <div class="mdui-card-menu">
+            <button class="mdui-btn mdui-btn-icon">
+              <i class="mdui-icon material-icons">share</i>
+            </button>
+          </div>
+
+          <div class="mdui-card-primary">
+            <div class="mdui-card-primary-title">Title</div>
+            <div class="mdui-card-primary-subtitle">Subtitle</div>
+          </div>
+
+          <div class="mdui-card-content">子曰：「学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知，而不愠，不亦君子乎？」</div>
+
+          <div class="mdui-card-actions">
+            <button class="mdui-btn mdui-ripple">action 1</button>
+            <button class="mdui-btn mdui-ripple">action 2</button>
+            <button class="mdui-btn mdui-btn-icon mdui-float-right">
+              <i class="mdui-icon material-icons">expand_more</i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="mdui-col-md-1 mdui-col-sm-2"></div>
+    </div>
+  </main>
+
+
+
+  <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+</body>
+
+</html>

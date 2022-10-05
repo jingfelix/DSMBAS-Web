@@ -1,7 +1,7 @@
 import os
 import sys
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, current_user
 
@@ -16,7 +16,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev')
 app.config['SQLALCHEMY_DATABASE_URI'] = prefix + os.path.join(os.path.dirname(app.root_path), os.getenv('DATABASE_FILE', 'data.db'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(app.root_path), 'core\\upload')
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
@@ -31,7 +31,10 @@ def load_user(user_id):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    return jsonify({"message": "Hello World!"})
+    return render_template("login.html", msg=request.args.get("msg", ""))
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return jsonify({"msg": "404 Not Found."}), 404
 
-from core import commands, user
+from core import commands, dashboard, user, trace, executor
