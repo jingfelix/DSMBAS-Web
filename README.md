@@ -19,8 +19,8 @@
 实现了基本的移动端适配
 
 <div>
-    <img src="https://felix-bucket-0.s3.ladydaily.com/ui-3.png" alt="ui-3" width="50%" />
-    <img src="https://felix-bucket-0.s3.ladydaily.com/ui-4.png" alt="ui-4" width="50%" />
+    <img src="https://felix-bucket-0.s3.ladydaily.com/ui-3.png" alt="ui-3" width="44.5%" />
+    <img src="https://felix-bucket-0.s3.ladydaily.com/ui-4.png" alt="ui-4" width="44%" />
 </div>
 
 ## 3 Details
