@@ -6,21 +6,21 @@
 
 本仓库包含除Injector外的所有部分，包括前端，后端，虚拟机内的Exacutor
 
-![structure-1](https://felix-bucket-0.s3.ladydaily.com/structure-1.png)
+![structure-1](https://felix-bucket-0.s3.bitiful.net/structure-1.png)
 
 ## 2 User Interface
 
 使用[MDUI](https://mdui.org)作为前端框架
 
-![ui-2](https://felix-bucket-0.s3.ladydaily.com/ui-2.png)
+![ui-2](https://felix-bucket-0.s3.bitiful.net/ui-2.png)
 
-![ui-1](https://felix-bucket-0.s3.ladydaily.com/ui-1.png)
+![ui-1](https://felix-bucket-0.s3.bitiful.net/ui-1.png)
 
 实现了基本的移动端适配
 
 <div>
-    <img src="https://felix-bucket-0.s3.ladydaily.com/ui-3.png" alt="ui-3" width="44.5%" />
-    <img src="https://felix-bucket-0.s3.ladydaily.com/ui-4.png" alt="ui-4" width="44%" />
+    <img src="https://felix-bucket-0.s3.bitiful.net/ui-3.png" alt="ui-3" width="44.5%" />
+    <img src="https://felix-bucket-0.s3.bitiful.net/ui-4.png" alt="ui-4" width="44%" />
 </div>
 
 ## 3 Details
